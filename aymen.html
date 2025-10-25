@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday My Love ❤️</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(circle at top, #ff758c, #ff7eb3);
+        color: white;
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 2.8em;
+        margin-top: 100px;
+        animation: fadeIn 2s ease-in-out, sparkle 2s infinite;
+        text-shadow: 0 0 20px #fff, 0 0 40px #ffb6c1;
+      }
+
+      p {
+        font-size: 1.6em;
+        margin-top: 10px;
+        animation: fadeIn 3s ease-in-out;
+        text-shadow: 0 0 15px #fff, 0 0 30px #ff69b4;
+      }
+
+      .hearts {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .heart {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 24px;
+        animation: floatUp 6s infinite ease-in;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(100vh) scale(0.5);
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-10vh) scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          text-shadow: 0 0 10px #fff, 0 0 20px #ffb6c1, 0 0 30px #ff69b4;
+        }
+        50% {
+          text-shadow: 0 0 30px #fff, 0 0 60px #ffb6c1, 0 0 90px #ff69b4;
+        }
+      }
+
+      video {
+        width: 250px;
+        height: 250px;
+        border-radius: 20px;
+        margin-top: 40px;
+        box-shadow: 0 0 25px white;
+        animation: fadeIn 4s ease-in-out;
+      }
+
+      footer {
+        position: fixed;
+        bottom: 25px;
+        width: 100%;
+        text-align: center;
+        font-size: 1.2em;
+        color: #fff;
+        animation: fadeIn 5s ease-in-out;
+        text-shadow: 0 0 20px #ffb6c1;
+      }
+
+      #soundBtn {
+        position: fixed;
+        bottom: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ff4b6e;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 10px 20px;
+        font-size: 16px;
+        box-shadow: 0 0 10px white;
+        cursor: pointer;
+        animation: fadeIn 3s ease-in-out;
+      }
+
+      #soundBtn:hover {
+        background: #ff2a5c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hearts"></div>
+
+    <h1>Happy Birthday my love ❤️</h1>
+    <p>You're my love 💋</p>
+
+    <!-- 🎥 فيديوك -->
+    <video autoplay loop muted playsinline>
+      <source src="aymen.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- 🔊 زر تشغيل الصوت -->
+    <button id="soundBtn">🔊 Click to turn on sound</button>
+
+    <footer>From Wiem for Aymen 💞</footer>
+
+    <!-- 🎶 الموسيقى -->
+    <audio id="music" loop>
+      <source src="aymen.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      // قلوب متحركة
+      const heartsContainer = document.querySelector(".hearts");
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 3 + Math.random() * 5 + "s";
+        heart.innerHTML = "❤️";
+        heartsContainer.appendChild(heart);
+        setTimeout(() => heart.remove(), 8000);
+      }
+      setInterval(createHeart, 300);
+
+      // تفعيل الصوت
+      const btn = document.getElementById("soundBtn");
+      const music = document.getElementById("music");
+      btn.addEventListener("click", () => {
+        music.play();
+        btn.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
